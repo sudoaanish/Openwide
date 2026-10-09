@@ -1,0 +1,16 @@
+node_modules/
+dist/
+release/
+artifacts/
+.cache/
+playwright-report/
+test-results/
+demo/standalone.html
+demo/standalone.js
+demo/standalone.js.map
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db

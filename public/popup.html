@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Openwide</title>
+    <link rel="stylesheet" href="theme.css" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="icons/openwide-logo.png" alt="Openwide" /><span>0.1.1</span>
+    </header>
+    <p id="origin">Current site</p>
+    <button id="enable">Enable on this site</button>
+    <label>Player frame<select id="frame" aria-label="Player frame"></select></label>
+    <div id="primary"></div>
+    <label hidden>Mode<select id="mode" aria-label="Mode" disabled></select></label>
+    <div class="actions">
+      <button id="panel" disabled>Open player controls</button
+      ><button id="reset" disabled>Reset video</button
+      ><button id="compare" disabled>Compare</button>
+    </div>
+    <div id="status" class="status-summary" role="status" aria-live="polite">Finding video…</div>
+    <div id="warning" class="warning" role="status"></div>
+    <details>
+      <summary>Diagnostics</summary>
+      <div id="diagnostics" class="diagnostic"></div>
+    </details>
+    <details>
+      <summary>Site settings</summary>
+      <div class="actions">
+        <button id="save" disabled>Save site profile</button
+        ><button id="reset-site">Reset site</button><button id="disable">Disable site</button>
+      </div>
+    </details>
+    <details>
+      <summary>Settings and permissions</summary>
+      <p>
+        Embedded players need permission for their own origin. Example: https://media.example.org
+      </p>
+      <label
+        >Embedded origin<input
+          id="embedded"
+          type="url"
+          placeholder="https://media.example.org" /></label
+      ><button id="grant">Grant embedded origin</button>
+      <div class="actions">
+        <button id="export">Export settings</button
+        ><label class="file"
+          >Import settings<input id="import" type="file" accept=".json,application/json" /></label
+        ><button id="shortcuts">Keyboard shortcuts</button>
+      </div>
+      <p>
+        Everything stays on this device. Dynamic effects require readable video. Elastic WebGL may
+        affect RTX VSR.
+      </p>
+    </details>
+    <script src="popup.js" defer></script>
+  </body>
+</html>

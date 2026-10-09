@@ -1,0 +1,39 @@
+{
+  "name": "openwide-video",
+  "version": "0.1.1",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "vitest run",
+    "test:browser": "playwright test",
+    "dev": "vite --host 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "package": "npm run build && node scripts/package.mjs",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "screenshots": "npm run build && node scripts/screenshots.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.55.1",
+    "@types/chrome": "0.1.24",
+    "prettier": "3.9.9",
+    "typescript": "5.9.2",
+    "vite": "7.3.7",
+    "vitest": "4.1.11"
+  },
+  "description": "Video fitting, center-preserving elastic stretch, and ambient light for ultrawide displays.",
+  "author": "Aanish Farrukh",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sudoaanish/Openwide.git"
+  },
+  "homepage": "https://github.com/sudoaanish/Openwide#readme",
+  "bugs": {
+    "url": "https://github.com/sudoaanish/Openwide/issues"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

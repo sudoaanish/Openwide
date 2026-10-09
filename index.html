@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Openwide test laboratory</title>
+    <style>
+      body {
+        font: 15px system-ui;
+        background: #0e1421;
+        color: #e9f1ff;
+        margin: 0;
+        padding: 24px;
+      }
+      main {
+        max-width: 1600px;
+        margin: auto;
+      }
+      h1 {
+        font-size: 24px;
+      }
+      button,
+      select,
+      input {
+        font: inherit;
+        padding: 6px;
+        background: #263952;
+        color: #fff;
+        border: 1px solid #7690ad;
+        border-radius: 5px;
+      }
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 16px 0;
+      }
+      .player {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 43/18;
+        background: #000;
+        overflow: hidden;
+      }
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      .captions {
+        position: absolute;
+        bottom: 10%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 4;
+        pointer-events: none;
+      }
+      .captions span {
+        background: #000b;
+        padding: 5px;
+        color: white;
+      }
+      .player-buttons {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        z-index: 5;
+      }
+      #secondary {
+        width: 400px;
+        aspect-ratio: 16/9;
+      }
+      .note {
+        color: #bdd0e9;
+      }
+      label {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Openwide video laboratory</h1>
+      <p class="note">
+        Generated locally. This fixture exercises real video rendering and the content controller
+        with a local Chrome API shim.
+      </p>
+      <div class="controls">
+        <button id="start">Start fixture</button><button id="show">Open extension controls</button
+        ><button id="replace">Replace video</button
+        ><button id="fullscreen-fixture">Player fullscreen</button
+        ><button id="root-fullscreen-fixture">Document fullscreen</button>
+        <label
+          >Picture<select id="picture">
+            <option value="16:9">16:9</option>
+            <option value="4:3">4:3</option>
+            <option value="2.39:1">2.39:1</option>
+            <option value="9:16">Portrait</option>
+          </select></label
+        >
+        <label
+          >Padding<select id="padding">
+            <option value="none">None</option>
+            <option value="encoded">Encoded widescreen bars</option>
+            <option value="windowbox">All four sides</option>
+          </select></label
+        >
+        <label
+          >Scene<select id="scene">
+            <option value="normal">Grid + circles</option>
+            <option value="dark">Dark</option>
+            <option value="fade">Fade</option>
+            <option value="flash">Flashing backdrop test</option>
+          </select></label
+        >
+        <label><input id="logo" type="checkbox" />Border logo</label
+        ><label><input id="burnt" type="checkbox" />Burned-in subtitle</label>
+        <label><input id="dom-captions" type="checkbox" checked />DOM captions</label
+        ><button id="block">Simulate blocked pixels</button>
+      </div>
+      <div id="main-player" class="player html5-video-player">
+        <video id="video" muted playsinline></video>
+        <div class="captions"><span>DOM caption: stays outside the video warp</span></div>
+        <div class="player-buttons">
+          <button id="pause">Pause/play</button><button id="remove">Remove video</button>
+        </div>
+      </div>
+      <p>
+        Use modes and advanced controls to inspect center distortion, padding, and cleanup. The
+        controls inside the frame must stay clickable.
+      </p>
+      <div id="secondary" class="player"><video id="second-video" muted playsinline></video></div>
+      <pre id="fixture-status" role="status">Not started.</pre>
+    </main>
+    <script type="module" src="/demo/fixture.ts"></script>
+  </body>
+</html>
